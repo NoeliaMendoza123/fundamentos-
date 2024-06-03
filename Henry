@@ -1,0 +1,145 @@
+#include <iostream>//LIBRERIA PRINCIPAL DE C++: FUNCIONES
+#include <math.h>//LIBRERIA PARA FUNCIONES ALGEBRAICAS
+#include <stdio.h>//LIBRERIA PARA ENTRADA Y SALIDA DE DATOS
+
+using namespace std;//ESPACIO DE TRABAJO
+
+int main()//FUNCIONES PRINCIPALES DEL PROGRAMA
+{//INICIO DE PROGRAMA
+    //DECLARACION DE VARIABLES Y CONSTANTES
+    float num1, num2, num3;// VARIABLE TIPO DECIMAL
+    float PI=3.1416;// CONSTANTE TIPO DECIMAL
+    double suma, resta, multi, div, ec1, ec2, ec3;//VARIABLE TIPO REAL
+    char UNIVERSIDAD[70]="UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE SEDE SANTO DOMINGO";
+    char NOMBREAPELLIDO[25]="Henry Sosapanta";// CONSTANTE TIPO CARACTER
+    char NIVEL [8]= "1RO. A";
+    char ASIGNATURA [30]="FUNDAMENTOS DE PROGRAMACION";
+    char CARRERA [5]="ITIN";
+    char tema [40]="LABRATORIO 2";//VARIABLE TIPO CARACTER
+    char fecha [20]="03/06/2024";
+    int opcion, CONS=2;// VARIABLE TIPO ENTERO
+    //SALIDA DE DATOS
+    cout<<"=============================================================================="<<endl;
+    cout<<"UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE SEDE SANTO DOMINGO"<<endl;
+    cout<<"Henry Sosapanta"<<endl;
+    cout<<"1RO. A"<<endl;
+    cout<<"FUNDAMENTOS DE PROGRAMACION"<<endl;
+    cout<<"ITIN"<<endl;
+    cout<<"LABORATORIO 2"<<endl;
+    cout<<"03/06/2024"<<endl;
+    cout<<"=============================================================================="<<endl;
+    // INICIO DE ESTRUCTURA DE CONTROL DO WHILE
+    do {
+        cout<<" 1. Operaciones basicas"<<endl;
+        cout<<" 2. Ecuacion 1:(((sqrt(num1/num2)*PI)/num2))"<<endl;
+        cout<<" 3. Ecuacion 2:(((cos(num1)*sin(num2))+((pow((num3*num2),2))/sqrt(num1))))"<<endl;
+        cout<<" 4. Ecuacion 3:((pow((num1),2))/(sqrt(num2-num3)))+(PI/num2);"<<endl;
+        cout<<" 5. Salir"<<endl;
+        cout<<"=============================================================================="<<endl;
+        cout<<" Ingrese una opcion: "<<endl;
+        cin>>opcion;
+
+        switch(opcion){//INICIO ESTRUCTURA DE CONTROL DO WHILE
+        case 1:
+            cout<<"Ingrese el numero de inicio de repeticiones"<<endl;
+            cin>>num1;
+            cout<<" Ingrese el numero de final de repeticiones"<<endl;
+            cin>>num2;
+            for(int x=num1; x<=num2; ++x){//INICIO ESTRUCTURA DE CONTROL FOR
+            cout <<" interaccion: " <<x<< endl;
+            //ENTRADA Y SALIDA DE DATOS PARA LAS OPERACIONES BASICAS
+            cout<<"Ingrese su primer numero, para multiplicacion, suma y resta: "<<endl;
+            cin>>num1;
+            cout<<"Ingrese su segundo numero, para multiplicacion suma y resta: "<<endl;
+            cin>>num2;
+            //OPERACIONES
+            suma=num1+num2;
+            resta=num1-num2;
+            multi=num1*num2;
+            cout<<"El resultado de su suma es:"<<suma<<endl;
+            cout<<"El resltado de su resta es:"<<resta<<endl;
+            cout<<"El resultado de su multiplicacion es:"<<multi<<endl;
+            //INICIO DE ESTRUCTURA DE CONTROL CONDICIONAL WHILE
+            while(num2==0){
+                cout<<"Recuerde que no hay division para 0, por favor ingrese un numero diferente de 0"<<endl;
+                cin>>num2;
+            }//FIN DE LA ESTRUCTURA DE CONTROL WHILE
+            div=num1/num2;
+            cout<<"El resultado de su division es: "<<div<<endl;
+            cout<<"=============================================================================="<<endl;
+            }//FIN ESTRUCTURA DE CONTROL FOR
+            break;
+        case 2:
+            //ENTRADA Y SALIDA DE DATOS PARA LA PRIMERA ECUACION COMPLEJA
+            cout<<"Ingrese el primer numero para la primera ecuacion en la que PI sera su constante: (((sqrt(num1/num2)*PI)/num2)))"<<endl;
+            cin>>num1;
+            while(num1<0){
+                cout<<"Recuerde que no hay raices de numeros negativos"<<endl;
+                cin>>num1;
+            }
+            cout<<"Ingrese el segundo numero para la ecuacion anterior"<<endl;
+            cin>>num2;
+                while(num2<=0){
+                cout<<"Recuerde que no hay divisiones para 0 y tampoco raices de numeros negativos"<<endl;
+                cin>>num2;
+            }
+            cout<<"Ingrese el tercer numero para la ecuacion anterior"<<endl;
+            cin>>num3;
+            while(num3==0){
+                cout<<"Recuerde que no hay divisiones para 0"<<endl;
+                cin>>num3;
+            }
+             ec1=(((sqrt(num1/num2)*PI)/num3));
+            cout<<"El resultado de su primera ecuacion es: "<<ec1<<endl;
+            cout<<"=============================================================================="<<endl;
+        break;
+        case 3:
+            //ENTRADA Y SALIDA DE DATOS PARA LA SEGUNDA ECUACION COMPLEJA
+            cout<<"Ingrese su primer numero para la segunda ecuacion en la que habra un exponente cuadrado sera su constante: (((cos(num1)*sin(num2))+((pow((num3*num2),2))/sqrt(num1))))"<<endl;
+            cin>>num1;
+            //INICIO DE ESTRUCTURA DE CONTROL IF ELSE
+            if (num1 <= 0) {
+            cout << "Recuerde que no hay raices de numeros negativos y divisiones para 0, vuelva a ingresar su primer numero" <<endl;
+            cin>>num1;
+            } else {
+            cout<<"Ingrese su segundo numero para la ecuacion anterior"<<endl;
+            cin>>num2;
+            cout<<"Ingrese su tercer numero para la ecuacion anterior"<<endl;
+            cin>>num3;
+            ec2=(((cos(num1)*sin(num2))+((pow((num3*num2),2))/sqrt(num1))));
+            cout<<"El resultado de su segunda ecuacion es: "<<ec2<<endl;
+            cout<<"=============================================================================="<<endl;
+            }//FINAL DE LA ESTRUCTURA DE CONTROL IF ELSE
+        break;
+        case 4:
+            //ENTRADA Y SALIDA DE DATOS PAR ALA TERCERA ECUACION COMPLEJA
+            cout<<"Ingrese el primer numero para la tercera ecucacion en la que 2 y PI seran sus constantes: ((pow((num1),2))/(sqrt(num2-num3)))+(PI/num2) "<<endl;
+            cin>>num1;
+            cout<<"Ingrese el segundo numero para la ecuacion anterior"<<endl;
+            cin>>num2;
+            while(num2<=0){
+                cout<<"Recuerde que no hay raices de numero negativos ingrese un numero mayor o diferente a 0"<<endl;
+                cin>>num2;
+            }
+            cout<<"Ingrese el tercer numero para la ecuacion anterior"<<endl;
+            cin>>num3;
+            while(num3>0){
+                cout<<"Recuerde que no hay raices de numero negativos igrese un numero menor a 0"<<endl;
+                cin>>num3;
+            }
+             ec3=((pow((num1),CONS))/(sqrt(num2-num3)))+(PI/num2);
+            cout<<"El resultado de su tercera ecuacion es: "<<ec3<<endl;
+            cout<<"=============================================================================="<<endl;
+        break;
+        case 5:
+            //SALIDA DE DATOS PARA INDICAR QUE SE HA SILIDO DEL PROGRAMA CON EXITO
+            cout<<" Usted ha salido con exito del programa"<<endl;
+            cout<<"=============================================================================="<<endl;
+        break;
+        default:
+            //SALIDA DE DATOS PARA INDICAR QUE UNA OPCIONB ES INCORRECTA
+            cout<<" Ha elegido una opcion incorrecta"<<endl;
+            cout<<"=============================================================================="<<endl;
+        }//FIN DE ESTRUCTURA DE CONTROL SWITCH
+    }while(opcion!=5);//FIN DE LA ESTRUCTURA DE CONTROL DO WHILE
+}//FIN DEL PROGRAMA
