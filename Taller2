@@ -1,0 +1,66 @@
+#include <iostream>//LIBRERIA PRINCIPAL DE C++: FUNCIONES
+#include <math.h>//LIBRERIA PARA FUNCIONES ALGEBRAICAS
+#include <stdio.h>//LIBRERIA PARA ENTRADA Y SALIDA DE DATOS
+
+using namespace std;//ESPACIO DE TRABAJO
+
+int main()//FUNCIONES PRINCIPALES DEL PROGRAMA
+{//INICIO DE PROGRAMA
+    //DECLARACION DE VARIABLES Y CONSTANTES
+    float num1, num2;// VARIABLE TIPO DECIMAL
+    double ec1;//VARIABLE TIPO REAL
+    char UNIVERSIDAD[70]="UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE SEDE SANTO DOMINGO";
+    char NOMBREAPELLIDO[25]="Henry Sosapanta";// CONSTANTE TIPO CARACTER
+    char NIVEL [8]= "1RO. A";
+    char ASIGNATURA [30]="FUNDAMENTOS DE PROGRAMACION";
+    char CARRERA [5]="ITIN";
+    char tema [40]="Taller 2";//VARIABLE TIPO CARACTER
+    char fecha [20]="03/06/2024";
+    int opcion;// VARIABLE TIPO ENTERO
+    //SALIDA DE DATOS
+    cout<<"=============================================================================="<<endl;
+    cout<<"Universidad: "<<UNIVERSIDAD<<endl;
+    cout<<"Nombre: "<<NOMBREAPELLIDO<<endl;
+    cout<<"Nivel: "<<NIVEL<<endl;
+    cout<<"Asignatura: "<<ASIGNATURA<<endl;
+    cout<<"Carrera: "<<CARRERA<<endl;
+    cout<<"Tema: "<<tema<<endl;
+    cout<<"Fecha: "<<fecha<<endl;
+    cout<<"=============================================================================="<<endl;
+    // INICIO DE ESTRUCTURA DE CONTROL DO WHILE
+    do {
+        cout<<" 1. Ecuacion sqrt((num1/num2)/num2"<<endl;
+        cout<<" 2. Salir"<<endl;
+        cout<<"=============================================================================="<<endl;
+        cout<<" Ingrese una opcion: "<<endl;
+        cin>>opcion;
+            switch(opcion){//INICIO ESTRUCTURA DE CONTROL DO WHILE
+            case 1://CASO 1
+            cout<<"Ingrese su primer numero, para la ecuacion: "<<endl;
+            cin>>num1;
+            cout<<"Ingrese su segundo numero, para la ecuacion: "<<endl;
+            cin>>num2;
+            if (num2 == 0) {
+                    cout<< " No existen divisiones para 0" << endl;
+                } else if (num1 < 0 || num2 < 0) {
+                    cout << " No se pueden calcular raices cuadradas de numeros negativos." << endl;
+                } else {
+            //OPERACION
+            ec1=sqrt((num1/num2)/num2);
+            //SALIDA DE DATOS PARA INDICAR MI RESPUESTA
+            cout<<" El resultado de su ecuacion es: "<<ec1<<endl;
+            cout<<"=============================================================================="<<endl;
+            }
+            break;
+        case 2://CASO2
+            //SALIDA DE DATOS PARA INDICAR QUE SE HA SILIDO DEL PROGRAMA CON EXITO
+            cout<<" Usted ha salido con exito del programa"<<endl;
+            cout<<"=============================================================================="<<endl;
+        break;
+        default:
+            //SALIDA DE DATOS PARA INDICAR QUE UNA OPCIONB ES INCORRECTA
+            cout<<" Ha elegido una opcion incorrecta"<<endl;
+            cout<<"=============================================================================="<<endl;
+        }//FIN DE ESTRUCTURA DE CONTROL SWITCH
+    }while(opcion!=2);//FIN DE LA ESTRUCTURA DE CONTROL DO WHILE
+}//FIN DEL PROGRAMA
