@@ -1,0 +1,146 @@
+#include<math.h>
+#include<iostream>
+#include<locale.h>
+using namespace std;
+
+int main()
+{
+setlocale(LC_ALL,"Spanish");
+	// DECLARACION DE CONSTANTES Y VARIABLES
+	float a, ma, vls, vst, n, ph, h, mols, molal;// pm=peso molecular, vls=volumen de solucion, vst=volumen de soluto, a=tetha
+	int option;
+	float pesom;//peso molecular
+	char UNIVERSIDAD [100]="UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE SEDE SANTO DOMINGO||";
+    char INTEGRANTES[100]="Henry Sosapanta Y Karen Yanza                             ||";// CONSTANTE TIPO CARACTER
+    char NIVEL [100]= "1RO. A                                                          ||";
+    char ASIGNATURA [100]="FUNDAMENTOS DE PROGRAMACION                                ||";
+    char CARRERA [100]="ITIN                                                          ||";
+    char tema [100]="Proyecto                                                         ||";//VARIABLE TIPO CARACTER
+    char fecha [100]="09/06/2024                                                      ||";
+    int opcion;// VARIABLE TIPO EN
+    cout<<"================================================================================"<<endl;
+    cout<<"||     Universidad: "<<UNIVERSIDAD<<endl;
+    cout<<"||     Integrantes: "<<INTEGRANTES<<endl;
+    cout<<"||     Nivel: "<<NIVEL<<endl;
+    cout<<"||     Asignatura: "<<ASIGNATURA<<endl;
+    cout<<"||     Carrera: "<<CARRERA<<endl;
+    cout<<"||     Tema: "<<tema<<endl;
+    cout<<"||     Fecha: "<<fecha<<endl;
+    cout<<"================================================================================"<<endl;
+    // INICIO DE ESTRUCTURA DE CONTROL DO WHILE
+	do {
+		cout << "1. Calculadora de normalidad" << endl;
+		cout << "2. Calculadora de molalidad" << endl;
+		cout << "3. Calculadora de pH" << endl;
+		cout << "4. Salir"<<endl;
+		cout<<"================================================================================"<<endl;
+		cout << " Ingrese una opcion" << endl;
+		cin >> option;
+//Usar la función switch para crear un menú dinámico//
+        switch (option)
+        {
+        case 1://Opción que tendrá las instrucciones y pasos para calcular la normalidad de una sustancia//
+            cout << endl;
+            cout << "NORMALIDAD = (m * a) / (pesom * vls)" << endl;
+
+            cout << "Ingrese el valor de la masa: ";
+            cin >> ma;
+
+            while (ma <= 0)
+            {
+                cout << "La masa no puede ser negativa y tampoco cero. Ingrese nuevamente: ";
+                cin >> ma;
+            }
+            cout << "Ingrese el factor normalidad: ";
+            cin >> a;
+            while (a <= 0 || a>10)
+            {
+                cout << "El factor normalidad debe ser mayor a 0, no puede ser 0 o mayor a 10, ingrese nuevamente: ";
+                cin >> a;
+            }
+            cout << "Ingrese el valor de peso molecular: ";
+            cin >> pesom;
+            while (pesom == 0 || pesom<0)
+            {
+                cout << "El peso molecular no puede ser cero ni menor a cero, ingrese nuevamente: ";
+                cin >> pesom;
+            }
+            cout << "Ingrese el volumen de solución: ";
+            cin >> vls;
+            while (vls < 0 || vls == 0)
+            {
+                cout << "El volumen no puede ser negativo o igual a cero. Ingrese nuevamente: ";
+                cin >> vls;
+            }
+
+    cout<< '\n'<<endl;
+          n = ma * a / (pesom * vls);
+            cout << "La normalidad de la sustancia es de: " << n << endl;
+cout<< '\n'<<endl;
+//Opción para calcular la molaridad de una sustancia//
+            break;
+        case 2:
+            cout << "MOLALIDAD = moles de soluto / volumen en kg de disolvente" << endl;
+         cout<<"Ingrese la masa del soluto"<<endl;
+         cin>>ma;
+           while(ma<0 || ma==0){
+                cout<<"No hay masas negativas o iguales a cero, ingrese el valor de nuevo"<<endl;
+                cin>>ma;
+            }
+
+            cout <<"Ingrese el peso molecular del soluto"<<endl;
+            cin>>pesom;
+            while(pesom<0 || pesom==0){
+                cout<<"El peso molecular no puede ser negativo ni igual a cero, ingrese el dato de nuevo"<<endl;
+                cin>>pesom;
+            }
+
+            //la unidad del volumen en molalidad se expresa en kilogramos//
+            cout<<"Ingrese el volumen del solvente"<<endl;
+            cin>>vls;
+            while (vls==0 || vls<0){
+                cout <<"El volumen no puede ser negativo ni puede ser igual a cero, porfavor ingrese de nuevo el digito"<<endl;
+                cin>>vls;
+            }
+
+           mols=ma/pesom;
+           molal=mols/vls;
+
+cout<< '\n'<<endl;
+            cout<<"La molalidad de la sustancia es "<< molal<<endl;
+cout<< '\n'<<endl;
+
+            break;
+//Opción para calcular el PH de una sustancia//
+        case 3:
+            cout<<" Calculadora de pH"<<endl;
+            cout<<" Ingrese  la concentración de iones de hidrógeno en la solución, medida en mol/L"<<endl;
+            cin>>h;
+            while (h<=0){
+                cout<<"No existen concentraciones de iones negativos o iguales a cero"<<endl;
+                cin>>h;
+            }
+            ph=-log10(h);
+            cout<<" El pH de su solucion es:"<<ph<<endl;
+            if(ph>14){
+                cout<<" No hay pH's mayores a 14"<<endl;
+            }else if(ph<0){
+                cout<<"El pH no puede ser negativo"<<endl;
+            }else if(ph<7){
+                cout<<"Usted tiene una solucion acida"<<endl;
+            }else if(ph>7){
+                cout<<"Usted tiene una solucion alcalina o basica"<<endl;
+            }else if(ph=7){
+                cout<<"Usted tiene una solucion neutra"<<endl;
+            }
+        break;
+        case 4:
+            cout<<" Usted ha salido del programa con exito"<<endl;
+            break;
+        default:
+            cout<<" Esta opcion es incorrecta, intente de nuevo"<<endl;
+            break;
+		}
+	} while (option!=4);
+	return 0;
+}
