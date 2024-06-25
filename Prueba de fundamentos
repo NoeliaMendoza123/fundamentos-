@@ -64,4 +64,6 @@ string nombres[100];//declaracion de un arreglo
     for (i=0; i<cantNombres; i++){
         cout<<"Nombres ordenados en forma ascendente: "<<nombres[i]<<endl;
     }
+    for (i=arreglo-1; i>arreglo; i--){
+        cout<<"Nombres ordenados de manera descendente :"<<nombres[i]<<endl;
 }
