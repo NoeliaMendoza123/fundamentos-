@@ -1,0 +1,67 @@
+//busqueda binaria
+void Binaria(){
+    string arreglo[100];
+    int inf, sup, mitad;
+    string buscar;
+    int num;
+    string band="F";
+    cout<<"Ingrese la cantidad de nombres que desea registrar"<<endl;
+    cin>>num;
+    for (int i=0; i<num; i++) {
+        cout<<"Ingrese los nombres"<<endl;
+        cin>>nombres[i];
+    }
+    cout<<"Ingrese el valor a buscar"<<endl;
+    cin>>buscar;
+    inf = 0;
+    sup=num-1;
+    while(inf<=sup) {
+        mitad=(inf+sup)/2;
+        if(arreglo[mitad]==buscar) {
+                band = "V";
+                break;
+        }
+        if(arreglo[mitad]>buscar) {
+            sup=mitad-1;
+        }
+        if(arreglo[mitad]<buscar) {
+            inf=mitad+1;
+        }
+    }
+    if (band=="V") {
+        cout<<"El nombre ingresado ha sido encontrado en la posicion: "<<mitad<<endl;
+    }else{
+        cout<<"El nombre ingresado no ha sido encontrado"<<endl;
+    }
+}
+
+//ordenamiento burbuja
+void burbuja(){
+string nombres[100];//declaracion de un arreglo
+    string aux;//variable auxiliar para el intercambio
+    int cantNombres, j;//variable de la cantidad de nombres y "j"
+    cout<<"Ingrese una cantidad de nombres"<<endl;
+    cin>>cantNombres;//lectura de la cantidad de nombres
+    //bucle para para ingresar los nombres del arreglo
+    for(i=0; i<cantNombres; i++){//lectura de cada nombre y el almacenamiento del arreglo
+        cout<<"Ingrese los nombres"<<endl;
+        cin>>nombres[i];
+    }
+    //bucle para imprimir los nombres del arreglo
+    for (i=0; i<cantNombres; i++){
+        cout<<"Los nombres ingresados son: "<<nombres[i]<<endl;
+    }
+    for (j=0; j<cantNombres-1; j++) {
+        for (i=0; i<cantNombres-1; i++) {
+            if (nombres[i]>nombres[i+1]) {
+                aux=nombres[i];
+                nombres[i]=nombres[i+1];
+                nombres[i+1]=aux;
+            }
+        }
+    }
+    //bucle para ordenar los nombres 
+    for (i=0; i<cantNombres; i++){
+        cout<<"Nombres ordenados en forma ascendente: "<<nombres[i]<<endl;
+    }
+}
