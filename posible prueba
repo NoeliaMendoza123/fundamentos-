@@ -1,0 +1,68 @@
+void arregloMeses (string meses[], int num);
+void burbuja(string meses[], int num);
+void binaria(string mes[], int num, string buscar);
+void menu();
+string buscar;
+string meses[20];
+int num;
+
+void arregloMeses (string mes[], int num){
+    int i;
+    cout<<"ingrese la cantidad de meses que desea registrar"<<endl;
+    cin>>num;
+    while (num<1 || num>12){
+        cout<<"Los meses que desea registrar no pueden ser manor a 0, ni mayor a 12"<<endl;
+        cin>>num;
+    }
+    for (i=0; i<num; i++){
+        cout<<"ingrese los meses que va a registrar"<<endl;
+        cin>>meses[i];
+    }
+    for (i=0; i<num; i++){
+    cout<<"los meses registrados son: "<<meses[i]<<endl;
+    }
+    burbuja(meses, num);
+}
+
+void burbuja (string meses[], int num){
+    string aux;
+    int j, i;
+    for (i=0; i<num; i++){
+        for (j=0; j<num-1; j++){
+            if (meses[j]>meses[j+1]){
+                aux=meses[j];
+                meses[j]=meses[j+1];
+                meses[j+1]=aux;
+            }
+        }
+    }
+    for (i=0; i<num; i++){
+    cout<<"los meses de manera alfabetica son: "<<meses[i]<<endl;
+    }
+    binaria(meses, num, buscar);
+}
+
+void binaria(string meses[], int num, string buscar) {
+    int inf=0, sup=num-1, mitad;
+    bool encontrado = false;
+    cout<<"Ingrese el mes que desea buscar"<<endl;
+    cin>>buscar;
+    while (inf <= sup) {
+        mitad = (inf + sup) / 2;
+        if (meses[mitad] == buscar) {
+            encontrado = true;
+            break;
+        }
+        if(meses[mitad]>buscar) {
+            sup = mitad-1;
+        }else{
+            inf=mitad+1;
+        }
+    }
+
+    if(encontrado){
+        cout<<"El mes se encontro en la posicion: "<<mitad<<endl;
+    }else{
+        cout<<"El mes ingresado no ha sido encontrado"<<endl;
+    }
+}
