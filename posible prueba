@@ -1,7 +1,7 @@
 void caratula();
 void pedirDatos(string ciudades[], float precios [], int num);
 void ordenarInserccion(string ciudades[], float precios[], int num);
-void busquedaSeleccion(string ciudades[], float precios[], int num);
+void busquedaSecuencial(string ciudades[], float precios[], int num);
 
 void menu (){
     int op;
@@ -74,10 +74,10 @@ void ordenarInserccion(string ciudades[], float precios[], int num){
     for (int i=0; i<num; i++){
         cout<<"Las ciudades ordenadas son: "<<ciudades[i]<<endl;
     }
-    busquedaSeleccion(ciudades, precios, num);
+    busquedaSecuencial(ciudades, precios, num);
 }
 
-void busquedaSeleccion(string ciudades[], float precios[], int num){
+void busquedaSecuencial(string ciudades[], float precios[], int num){
     string buscar;
     cout<<"Ingrese la ciudad que desea buscar"<<endl;
     cin>>buscar;
@@ -97,62 +97,3 @@ void busquedaSeleccion(string ciudades[], float precios[], int num){
     }
 
 }
-
-//ordenar burbuja
-string aux;
- for (j=0; j<cantNombres-1; j++) {
-        for (i=0; i<cantNombres-1; i++) {
-            if (nombres[i]>nombres[i+1]) {
-                aux=nombres[i];
-                nombres[i]=nombres[i+1];
-                nombres[i+1]=aux;
-            }
-        }
-    }
-    //bucle para ordenar los nombres
-    for (i=0; i<cantNombres; i++){
-        cout<<"Nombres ordenados en forma ascendente: "<<nombres[i]<<endl;
-    }
-
-//ordenar seleccion
-string aux;
-int mini;
-for (int i=0; i<num; i++) {
-        mini=i;
-        for (int j=i+1; j<num; j++) {
-            if(notas[j]<notas[mini]) {
-                mini=j;
-            }
-        }
-        aux=notas[i];
-        notas[i]=notas[mini];
-        notas[mini]=aux;
-    }
-    for (int i=0; i<num; i++) {
-        cout<<"Notas ordenadas de forma ascendente: "<<notas[i]<<endl;
-}
-
-// busqueda binaria
-int inf, sup, mitad;
- cout<<"Ingrese el valor a buscar"<<endl;
-    cin>>buscar;
-    inf = 0;
-    sup=num-1;
-    while(inf<=sup) {
-        mitad=(inf+sup)/2;
-        if(nombres[mitad]==buscar) {
-                band = "V";
-                break;
-        }
-        if(nombres[mitad]>buscar) {
-            sup=mitad-1;
-        }
-        if(nombres[mitad]<buscar) {
-            inf=mitad+1;
-        }
-    }
-    if (band=="V") {
-        cout<<"El nombre ingresado ha sido encontrado en la posicion: "<<mitad<<endl;
-    }else{
-        cout<<"El nombre ingresado no ha sido encontrado"<<endl;
-    }
